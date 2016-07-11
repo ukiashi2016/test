@@ -1,15 +1,15 @@
 bcp SQLEXPRESS.ado.Persons format nul -T -n -f Persons-n.fmt 
 sqlcmd -S localhost\sqlexpress -d dbo.test -Q "SELECT * FROM Persons
 
-bcp test.sa.Persons out "C:\Users\poligori\Desktop" -c -S localhost\SQLEXPRESS -U sa -P perorin5
+bcp test.sa.Persons out "C:\Users\*\Desktop" -c -S localhost\SQLEXPRESS -U sa -P *
 
-bcp test.sa.Persons out "C:\Users\poligori\Desktop" -c -S localhost\SQLEXPRESS -T
+bcp test.sa.Persons out "C:\Users\*\Desktop" -c -S localhost\SQLEXPRESS -T
 
-bcp [test].[dbo].[Persons] out "C:\Users\poligori\Desktop\Persons.csv" -c -S localhost\SQLEXPRESS -T
+bcp [test].[dbo].[Persons] out "C:\Users\*\Desktop\Persons.csv" -c -S localhost\SQLEXPRESS -T
 
-bcp [test].[dbo].[Datas] out "C:\Users\poligori\Desktop\Datas.csv" -c -S localhost\SQLEXPRESS -T
+bcp [test].[dbo].[Datas] out "C:\Users\*\Desktop\Datas.csv" -c -S localhost\SQLEXPRESS -T
 
-bcp [test].[dbo].[Datas] in "C:\Users\poligori\Desktop\Datas.csv" -c -S localhost\SQLEXPRESS -U sa -P perorin5
+bcp [test].[dbo].[Datas] in "C:\Users\*\Desktop\Datas.csv" -c -S localhost\SQLEXPRESS -U sa -P *
 
 sqlcmd -Q "SELECT * FROM test.dbo.Persons"
 
@@ -17,10 +17,10 @@ sqlcmd -S localhost\sqlexpress -d test -Q "SELECT * FROM Persons"
 
 bcp test.ado.Persons format nul -T -n -f Persons-n.fmt
 
-bcp [test].[dbo].[Persons] format nul -T -n -f Persons-n.fmt -c -S localhost\SQLEXPRESS -U sa -P perorin5
+bcp [test].[dbo].[Persons] format nul -T -n -f Persons-n.fmt -c -S localhost\SQLEXPRESS -U sa -P *
 
-bcp [test].[dbo].[Datas] in "C:\Users\poligori\Desktop\Datas.csv" -c -S localhost\SQLEXPRESS -U sa -P perorin5
+bcp [test].[dbo].[Datas] in "C:\Users\*\Desktop\Datas.csv" -c -S localhost\SQLEXPRESS -U sa -P *
 
 select id from (select * from [test].[dbo].[Persons] union select * from [test2].[dbo].[Persons]) t1 group by id having count(*)=2;
 
-bcp [test2].[dbo].[Datas] in "C:\Users\poligori\Desktop\Datas.csv" -c -S localhost\SQLEXPRESS -U sa -P perorin5
+bcp [test2].[dbo].[Datas] in "C:\Users\*\Desktop\Datas.csv" -c -S localhost\SQLEXPRESS -U sa -P *
